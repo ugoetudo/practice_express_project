@@ -2,8 +2,6 @@ const db = require('../db.js')
 const mysql = require('mysql')
 var express = require('express');
 var cors = require("cors");
-
-router = express.Router()
 var router = express.Router();
 const connection = mysql.createConnection(db.conn_info)
 connection.connect()
@@ -28,7 +26,7 @@ const time_left = (result) => {
     var yr = tn.getFullYear()
     var dt = tn.getDate()
     var mnt = tn.getMonth() /*note that months are 0-indexed*/
-    if (dtw === 0 | dtw === 6)
+    if (dtw === 0 || dtw === 6)
         return [];
     
     var dow = day_names[dtw-1]
